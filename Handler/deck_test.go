@@ -4,9 +4,9 @@ import "testing"
 
 func TestDealDeck(t *testing.T) {
 	nDeck := NewDeck()
-	var handSize = 1
+	var handSize = 6
 
-	for handSize < 52 {
+	for handSize < 1 {
 
 		d, _ := DealDeck(nDeck, handSize)
 
