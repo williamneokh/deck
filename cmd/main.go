@@ -1,12 +1,16 @@
 package main
 
-import "log"
+import (
+	"log"
+
+	"github.com/williamneokh/Deck/Handler"
+)
 
 func main() {
-	cardSet := NewDeck()
+	cardSet := Handler.NewDeck()
 	cardSet.ShuffleDeck()
 
-	player, dealer := DealDeck(cardSet, 10)
+	player, dealer := Handler.DealDeck(cardSet, 10)
 
 	err := player.SaveFile("playersCard")
 	if err != nil {
@@ -18,9 +22,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	player = ReadFromFile("playersCard")
+	player = Handler.ReadFromFile("playersCard")
 	player.Print("Player's Card")
-	dealer = ReadFromFile("dealersCard")
+	dealer = Handler.ReadFromFile("dealersCard")
 	dealer.Print("Dealer's Card")
 
 }
